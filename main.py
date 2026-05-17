@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from model import agent, HumanMessage
+from ingest import get_files, init_ingestion
 
 app = FastAPI()
-
+init_ingestion()
 
 @app.post("/query")
 async def handle_question(q: str) -> dict[str, str]:
@@ -18,7 +19,8 @@ async def handle_upload():
 
 @app.get("/documents")
 async def fetch_documents():
-    pass
+    """This function returns list of files currently in corpus"""
+    return {"corpus": get_files()}
 
 
 @app.post("/feedback")

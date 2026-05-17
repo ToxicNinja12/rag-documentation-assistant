@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from model import agent, HumanMessage
-from ingest import get_files, init_ingestion
+from ingest import get_files
 
 app = FastAPI()
-init_ingestion()
 
 @app.post("/query")
 async def handle_question(q: str) -> dict[str, str]:

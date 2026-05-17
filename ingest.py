@@ -29,10 +29,10 @@ def init_ingestion():
     )
     chunks = text_splitter.split_documents(corpus)
 
-    # Vector store
-    Chroma.from_documents(
+    vector_store = Chroma.from_documents(
         documents=chunks,
         embedding=embeddings,
         persist_directory="chroma_db"
     )
     print("[ALERT] Ingestion successfully completed")
+    return vector_store

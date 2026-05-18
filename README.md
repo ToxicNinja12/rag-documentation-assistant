@@ -1,5 +1,7 @@
 # RAG-Based Technical Documentation Assistant
 
+![RAG agent diagram](diagram.png)
+
 ## Overview
 This is a RAG-powered technical documentation assistant that can answer questions about a set of technical documents (e.g., Python library docs, API references, or framework guides). It uses a LangGraph workflow with retrieval, document grading, and answer generation nodes. It is
 served via a simple FastAPI application.
